@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jakub Oh</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/12e2a7609e.js" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("4CSd-7J2VwSZrx9Q_");
+        })();
+    </script>
+    <script>
+        $(document).ready(function() {
+            var dynamicText = ['Builder,', 'Creator,', 'Designer,', 'Engineer,', 'Freelancer,'];
+            var index = 0;
+
+            $.fn.appendTextToDiv = function() {
+                if (index == dynamicText.length) {
+                    index = 0;
+                }
+
+                $(".dynamic_text h2").text(dynamicText[index]);
+                index++
+
+                setTimeout(function() {
+                    $.fn.appendTextToDiv();
+                }, 2500);
+            }
+            $.fn.appendTextToDiv();
+        })
+    </script>
+</head>
+<section id="landing-page">
+    <nav>
+        <figure>
+            <div class="logoText" contenteditable="true">JO</div>
+        </figure>
+        <ul class="nav__link--list">
+            <li class="nav__link" onclick="toggleModal()">
+                <a href="#" class="
+                nav__link--anchor
+                glow__effect">About</a>
+            </li>
+            <li class="nav__link">
+                <a href="#projects" class="
+                nav__link--anchor
+                glow__effect">Projects</a>
+            </li>
+            <li class="nav__link" onclick="toggleModal()">
+                <a href="#" class="
+                nav__link--anchor
+                glow__effect">Contact</a>
+            </li>
+            <li class="nav__link" onclick="toggleContrast()">
+                <a href="#" class="
+                nav__link--anchor
+                glow__effect"><i class="fa-solid fa-wand-magic-sparkles"></i></a>
+            </li>
+        </ul>
+    </nav>
+    <header class="header">
+        <div class="header__content">
+            <h1 class="title">Hey</h1>
+            <h1 class="title blue">I'm Jake,</h1>
+            <div class="wrapper">
+                <div class="typer">
+                    <div class="static_text">
+                        <h2 class="textColor">A Software</h2>
+                    </div>
+                    <div class="dynamic_text">
+                        <h2 class="textColor"> </h2>
+                        <div class="slide_box">
+                            <div class="slide_pipe"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><br><br>
+            <p class="header__para">
+                with a strong passion for building web applications with great user experiences.
+                <br> Here's a bit more <b class="blue click" onclick="toggleModal()">about me</b>.
+            </p>
+            <div class=" social__list ">
+                <a href="https://www.linkedin.com/in/jakub-oh-a177a7189" target="_blank " class="social__link click ">
+                    <i class="fa-brands fa-linkedin-in "></i>
+                </a>
+                <a href="https://github.com/JSO2/personal-Portfolio.git " target="_blank " class="social__link click ">
+                    <i class="fa-brands fa-github "></i></i>
+                </a>
+                <a href="./assets/Jakub_resume.pdf" target="_blank " class="social__link click ">
+                    <i class="fa-solid fa-file "></i></i>
+                </a>
+            </div>
+        </div>
+    </header>
+    <a href="#">
+        <button class="mail__btn click " onclick="toggleModal()">
+        <i class="fa-solid fa-paper-plane "></i>
+        </button>
+    </a>
+</section>
+<div class="modal ">
+    <div class="modal__half modal__about ">
+        <h3 class="modal__title modal__title--about ">Here's a bit about me.
+        </h3>
+        <h4 class="modal__sub-title modal__sub-title--about ">Freelance Software Engineer</h4>
+        <p class="modal__para ">I'm a <b class="blue ">freelance software engineer</b> with great user experiences. <br> I currently am freelancing and working on multiple projects.</p>
+        <div class="modal__languages ">
+            <figure class="modal__language ">
+                <img class="modal__language--img " src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/240px-HTML5_Badge.svg.png " alt=" ">
+                <span class="language__name ">HTML</span>
+            </figure>
+            <figure class="modal__language ">
+                <img class="modal__language--img " src="https://cdn.iconscout.com/icon/free/png-256/css-131-722685.png " alt=" ">
+                <span class="language__name ">CSS</span>
+            </figure>
+            <figure class="modal__language ">
+                <img class="modal__language--img " src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png " alt=" ">
+                <span class="language__name ">JavaScript</span>
+            </figure>
+            <figure class="modal__language ">
+                <img class="modal__language--img " src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg " alt=" ">
+                <span class="language__name ">React</span>
+            </figure>
+        </div>
+    </div>
+    <div class="modal__half modal__contact ">
+        <i class="fa-solid fa-x modal__exit click " onclick="toggleModal()"></i>
+        <h3 class="modal__title modal__title--contact ">Let's have a chat!</h3>
+        <h3 class="modal__sub-title modal__subt-title--contact ">I'm currently open to new opportunities. I would love to hear from you.</h3>
+        <form id="contact__form " onsubmit="contact(event) ">
+            <div class="form__item ">
+                <label class="form__item--label ">Name</label>
+                <input class="input " name="user_name " type="text " required></input>
+            </div>
+            <div class="form__item ">
+                <label class="form__item--label ">Email</label>
+                <input class="input " name="user_email " type="email " required></input>
+            </div>
+            <div class="form__item ">
+                <label class="form__item--label ">Message</label>
+                <textarea class="input " name="message " type="text " required></textarea>
+            </div>
+            <button id="contact__submit " class="glow__effect glow__effect--btn">Send it my way</button>
+        </form>
+        <div class="modal__overlay modal__overlay--loading ">
+            <i class="fa-solid fa-spinner "></i>
+        </div>
+        <div class="modal__overlay modal__overlay--success ">
+            Thanks for the message! Looking forward to speaking to you soon.
+        </div>
+    </div>
+</div>
+<section id="projects ">
+    <div class="container ">
+        <div class="row ">
+            <h1 class="section__title ">
+                Here are some of my <span class="blue ">projects</span>
+            </h1>
+            <ul class="project__list ">
+                <li class="project ">
+                    <div class="project__wrapper ">
+                        <img src="./assets/project1.png " class="project__img " alt=" ">
+                        <div class="project__wrapper--bg "></div>
+                        <div class="project__description ">
+                            <h3 class="project__description--title ">
+                                Project 1
+                            </h3>
+                            <h4 class="project__description--sub-title ">
+                                HTML, CSS, JavaScript
+                            </h4>
+                            <p class="project__description--para ">
+                                This is my first project.
+                            </p>
+                            <div class="project__description--links ">
+                                <a href="https://github.com/JSO2/personal-Portfolio.git" class="project__description--link ">
+                                    <i class="fa-brands fa-github "></i>
+                                </a>
+                                <a href="# " class="project__description--link ">
+                                    <i class="fa-solid fa-link "></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="project ">
+                    <div class="project__wrapper ">
+                        <img src="./assets/project1.png " class="project__img " alt=" ">
+                        <div class="project__wrapper--bg "></div>
+                        <div class="project__description ">
+                            <h3 class="project__description--title ">
+                                Project 1
+                            </h3>
+                            <h4 class="project__description--sub-title ">
+                                HTML, CSS, JavaScript
+                            </h4>
+                            <p class="project__description--para ">
+                                This is my first project.
+                            </p>
+                            <div class="project__description--links ">
+                                <a href="https://github.com/JSO2/personal-Portfolio.git" class="project__description--link ">
+                                    <i class="fa-brands fa-github "></i>
+                                </a>
+                                <a href="# " class="project__description--link ">
+                                    <i class="fa-solid fa-link "></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="project ">
+                    <div class="project__wrapper ">
+                        <img src="./assets/project1.png " class="project__img " alt=" ">
+                        <div class="project__wrapper--bg "></div>
+                        <div class="project__description ">
+                            <h3 class="project__description--title ">
+                                Project 1
+                            </h3>
+                            <h4 class="project__description--sub-title ">
+                                HTML, CSS, JavaScript
+                            </h4>
+                            <p class="project__description--para ">
+                                This is my first project.
+                            </p>
+                            <div class="project__description--links ">
+                                <a href="https://github.com/JSO2/personal-Portfolio.git" class="project__description--link ">
+                                    <i class="fa-brands fa-github "></i>
+                                </a>
+                                <a href="# " class="project__description--link ">
+                                    <i class="fa-solid fa-link "></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="container ">
+        <div class="row footer__row ">
+            <figure>
+                <div class="logoText" contenteditable="true">JO</div>
+            </figure>
+            <div class="footer__social--list ">
+                <a href="https://github.com/JSO2/personal-Portfolio.git" target="_blank" class=" footer__social--link glow__effect ">GitHub</a>
+                <a href="https://www.linkedin.com/in/jakub-oh-a177a7189" target="_blank" class=" footer__social--link glow__effect ">LinkedIn</a>
+                <a href="#" onclick="toggleModal()" class=" footer__social--link glow__effect ">Contact</a>
+                <a href="./assets/Jakub_resume.pdf" target="_blank" class=" footer__social--link glow__effect ">Resume</a>
+            </div>
+            <div class="footer__copyright ">Copyright 2022 Jake Oh</div>
+        </div>
+    </div>
+</footer>
+
+</body>
+
+</html>
