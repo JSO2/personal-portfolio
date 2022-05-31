@@ -164,6 +164,10 @@ nav,
     color: #fff;
 }
 
+.dark-theme .slide_box:active {
+    visibility: hidden;
+}
+
 .dark-theme .slide_box {
     background-color: #242424;
 }
